@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:library_app/main.dart';
 
 
 class Details extends StatelessWidget {
@@ -12,8 +13,16 @@ class Details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+        backgroundColor: Colors.lime,
+        appBar: AppBar(
+        title: Text("LIBRARY APP"),
+    ),
+    body:SingleChildScrollView(
       child: Container(
+        margin: EdgeInsets.all(20),
         child: Column(
           children: [
             SizedBox(height: 20,),
@@ -106,9 +115,29 @@ class Details extends StatelessWidget {
               ),
             ),
             ),
+            SizedBox(height: 20,),
+            SizedBox(
+              height: 60,
+              width: double.infinity,
+              child: RaisedButton(
+                color: Colors.purpleAccent,
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>App()));
+
+              },
+                child: Text("BACK TO HOME",
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 25,
+                  ),
+              ),
+            ),
+            ),
           ],//children
         ),
       ),
+    ),
+    ),
     );
   }
 }
